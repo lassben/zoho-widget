@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Match Creator</title>
+    <script src="https://js.zohostatic.com/crm/javascript/zcti/1.0/ZCTIBrowserSDK.js"></script>
+</head>
+<body>
+    <div id="widget-container" style="padding: 20px; font-family: Arial, sans-serif;">
+        <div class="step" id="step1">
+            <h3>Étape 1 : Sélectionner un Vendeur</h3>
+            <select id="vendeurSelect" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">-- Choisir un vendeur --</option>
+            </select>
+            <div id="vendeurInfo" style="display: none; background: #f0f8ff; padding: 15px; margin: 10px 0; border-radius: 4px;">
+                <h4>📋 Vendeur sélectionné :</h4>
+                <div id="vendeurDetails"></div>
+            </div>
+            <button id="nextStep1" onclick="showStep2()" disabled style="padding: 12px 24px; background: #007cba; color: white; border: none; border-radius: 4px; cursor: pointer;">Étape suivante →</button>
+        </div>
+
+        <div class="step" id="step2" style="display: none;">
+            <h3>Étape 2 : Sélectionner un Acheteur</h3>
+            <select id="acheteurSelect" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">-- Choisir un acheteur --</option>
+            </select>
+            <div id="acheteurInfo" style="display: none; background: #f0f8ff; padding: 15px; margin: 10px 0; border-radius: 4px;">
+                <h4>🛒 Acheteur sélectionné :</h4>
+                <div id="acheteurDetails"></div>
+            </div>
+            <button id="createMatch" onclick="createMatch()" disabled style="padding: 12px 24px; background: #28a745; color: white; border: none; border-radius: 4px;">Créer le Match ✅</button>
+            <button onclick="showStep1()" style="padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 4px; margin-left: 10px;">← Retour</button>
+        </div>
+
+        <div id="result" style="display: none; background: #d4edda; padding: 20px; margin: 15px 0; border: 1px solid #c3e6cb; border-radius: 4px;">
+            <h4>✅ Match créé avec succès !</h4>
+            <div id="resultContent"></div>
+            <button onclick="resetForm()" style="padding: 10px 20px; background: #007cba; color: white; border: none; border-radius: 4px; margin-top: 15px;">Créer un nouveau match</button>
+        </div>
+
+        <div id="loading" style="display: none; text-align: center; padding: 20px;">
+            <div style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #007cba; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <p>Chargement...</p>
+        </div>
+    </div>
+
+    <style>
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    button:hover { opacity: 0.8; }
+    button:disabled { background: #cccccc; cursor: not-allowed; }
+    </style>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
